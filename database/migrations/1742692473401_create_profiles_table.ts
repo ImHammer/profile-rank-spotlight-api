@@ -12,7 +12,7 @@ export default class extends BaseSchema {
             table.string('random').nullable()
             table.string('name', 50).notNullable()
             table.string('email').notNullable()
-            table.string('biography').notNullable().defaultTo('')
+            table.string('biography', 1000).notNullable().defaultTo('')
 
             table.binary('avatar').nullable()
 

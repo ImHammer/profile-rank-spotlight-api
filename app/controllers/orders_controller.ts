@@ -20,17 +20,22 @@ export default class OrdersController {
         const order: Order = await this.ordersService.createOrder(profile, orderPayload)
         const preference = await this.mercadoPagoService.getPreference(order.mpPreferenceId)
 
-        return response.created({ order, preference })
+        return response.created({ preferenceId: preference.id })
     }
 
     async notify({ request, response }: HttpContext) {
         const mercadoPagoNotifyPayload: MercadoPagoNotifyPayload = request.all()
-
         switch (mercadoPagoNotifyPayload.type) {
             case 'payment':
                 await this.ordersService.webhookPayment(mercadoPagoNotifyPayload)
                 return response.ok({ message: 'OK!' })
             default:
+                if (
+                    mercadoPagoNotifyPayload.topic === 'merchant_order' ||
+                    mercadoPagoNotifyPayload.topic === 'payment'
+                ) {
+                    return response.ok({ message: 'OK!' })
+                }
                 return response.notImplemented({ message: 'Not implemented!' })
         }
     }

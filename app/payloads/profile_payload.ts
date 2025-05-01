@@ -13,3 +13,11 @@ export interface UpdateProfilePayload {
     biography?: string // BIOGRAPHY OF THE PROFILE
     avatar?: MultipartFile // IMAGE PROFILE IN BASE64 ENCODED
 }
+
+export interface RankProfilePayload {
+    id: number
+    rank: number | undefined
+    name: string
+    bio: string | undefined
+    totalAmount: number
+}

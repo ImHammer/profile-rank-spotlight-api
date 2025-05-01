@@ -7,7 +7,7 @@ const serverDomainUrl = env.get('SERVER_DOMAIN_URL')
 
 export const autoReturn = 'all'
 export const adicionalInfo = 'DOE PARA AJUDAR UMA VIDA :)'
-export const notificationUrl = `${serverDomainUrl}/order/notify`
+export const notificationUrl = `${serverDomainUrl}/api/orders/notify`
 export const statementDescriptor = 'DOA. PROFILERANK'
 
 export const paymentMethods = (): PaymentMethods => ({
@@ -28,9 +28,9 @@ export const paymentMethods = (): PaymentMethods => ({
 })
 
 export const backUrls = (): BackUrls => ({
-    success: `${clientDomainUrl}/success`,
-    failure: `${clientDomainUrl}/failure`,
-    pending: `${clientDomainUrl}/pending`,
+    success: `${clientDomainUrl}/buyed/success`,
+    failure: `${clientDomainUrl}/buyed/failure`,
+    pending: `${clientDomainUrl}/buyed/pending`,
 })
 
 export const donateItemFaker = (price: number): Items => ({

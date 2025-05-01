@@ -2,11 +2,11 @@ import vine from '@vinejs/vine'
 
 export const createProfileValidator = vine.compile(
     vine.object({
-        name: vine.string(),
-        email: vine.string(),
-        biography: vine.string(),
+        name: vine.string().alphaNumeric().maxLength(50),
+        email: vine.string().email().maxLength(30),
+        biography: vine.string().maxLength(1000),
         avatar: vine.file({
-            size: '3mb',
+            size: '2mb',
             extnames: ['jpg', 'png', 'jpeg'],
         }),
     })
@@ -14,12 +14,12 @@ export const createProfileValidator = vine.compile(
 
 export const updateProfileValidator = vine.compile(
     vine.object({
-        name: vine.string().optional(),
-        email: vine.string().optional(),
-        biography: vine.string().optional(),
+        name: vine.string().alphaNumeric().maxLength(50).optional(),
+        email: vine.string().email().maxLength(30).optional(),
+        biography: vine.string().maxLength(1000).optional(),
         avatar: vine
             .file({
-                size: '3mb',
+                size: '2mb',
                 extnames: ['jpg', 'png', 'jpeg'],
             })
             .optional(),

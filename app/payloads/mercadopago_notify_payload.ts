@@ -6,6 +6,7 @@ export interface MercadoPagoNotifyPayload {
     user_id?: number
     api_version?: string
     action?: string
+    topic?: string
     data?: {
         id?: number
     }

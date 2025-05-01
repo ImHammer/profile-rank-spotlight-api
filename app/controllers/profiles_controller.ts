@@ -46,7 +46,7 @@ export default class ProfilesController {
 
         return response.created({
             profile: createdProfile,
-            profileKey,
+            profileKey: profileKey['key'],
         })
     }
 

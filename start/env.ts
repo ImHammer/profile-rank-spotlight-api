@@ -25,5 +25,7 @@ export default await Env.create(new URL('../', import.meta.url), {
 
   CLIENT_DOMAIN_URL: Env.schema.string(),
 
-  SERVER_DOMAIN_URL: Env.schema.string()
+  SERVER_DOMAIN_URL: Env.schema.string(),
+
+  BLOG_POST_TOKEN: Env.schema.string()
 })

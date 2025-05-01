@@ -12,8 +12,12 @@ export default class Profile extends BaseModel {
     @column({})
     declare active: boolean
 
-    @column({})
+    @column({
+        serializeAs: null,
+    })
     declare random?: string
+
+    declare rank?: number
 
     @column({})
     declare name: string
