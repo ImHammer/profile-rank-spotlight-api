@@ -10,7 +10,6 @@ const blogPostToken = env.get('BLOG_POST_TOKEN')
 
 @inject()
 export default class BlogController {
-
     constructor(protected fileService: FileService) {}
 
     async index({ request, response }: HttpContext) {}
@@ -35,9 +34,5 @@ export default class BlogController {
             content: payload.content,
             image: await this.fileService.getBufferFromMultipartFile(payload.image),
         })
-
-        if () {
-
-        }
     }
 }
